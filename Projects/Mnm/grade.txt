@@ -1,0 +1,2 @@
+It works!
+In 2nd the only change is "+" instead of "||"
