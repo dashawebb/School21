@@ -1,0 +1,1 @@
+00-03 doesnt't compile because of absent ft_putchar

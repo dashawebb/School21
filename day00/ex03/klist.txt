@@ -1,0 +1,5 @@
+Credentials cache: API:7687
+        Principal: elchrist@21-SCHOOL.RU
+
+  Issued                Expires               Principal
+Sep 17 14:31:19 2018  Sep 18 14:31:19 2018  krbtgt/21-SCHOOL.RU@21-SCHOOL.RU

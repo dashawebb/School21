@@ -1,0 +1,2 @@
+00-02 OK
+03 segmentation fault
