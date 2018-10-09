@@ -14,10 +14,12 @@ NAME=colle-2
 SRCS=srcs/main.c srcs/ft_get_rush_size.c srcs/ft_get_rush_type.c srcs/ft_validate_rush.c srcs/utils.c
 INCLUDES=includes
 
-all:
-	gcc -Wall -Wextra -Werror -I$(INCLUDES) $(SRCS) -o $(NAME)
+all: $(NAME)
+
+$(NAME):
+    gcc -Wall -Wextra -Werror -I$(INCLUDES) $(SRCS) -o $(NAME)
 
 fclean:
-	rm -f $(NAME)
+     rm -f $(NAME)
 
 re: fclean all
