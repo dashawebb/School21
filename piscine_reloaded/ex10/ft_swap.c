@@ -1,25 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_sqrt.c                                          :+:      :+:    :+:   */
+/*   ft_swap.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: elchrist <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/11/20 16:40:12 by elchrist          #+#    #+#             */
-/*   Updated: 2018/11/20 16:47:26 by elchrist         ###   ########.fr       */
+/*   Created: 2018/11/19 19:48:40 by elchrist          #+#    #+#             */
+/*   Updated: 2018/11/19 19:53:20 by elchrist         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_sqrt(int nb)
+void	ft_swap(int *a, int *b)
 {
-	int root;
+	int sw;
 
-	root = 0;
-	if (nb < 0)
-		return (0);
-	while (root * root < nb)
-		root++;
-	if (root * root == nb)
-		return (root);
-	return (0);
+	sw = *a;
+	*a = *b;
+	*b = sw;
 }

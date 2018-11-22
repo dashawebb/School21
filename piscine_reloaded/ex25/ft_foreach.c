@@ -1,25 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_sqrt.c                                          :+:      :+:    :+:   */
+/*   ft_foreach.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: elchrist <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/11/20 16:40:12 by elchrist          #+#    #+#             */
-/*   Updated: 2018/11/20 16:47:26 by elchrist         ###   ########.fr       */
+/*   Created: 2018/11/21 21:47:32 by elchrist          #+#    #+#             */
+/*   Updated: 2018/11/22 00:14:56 by elchrist         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_sqrt(int nb)
+void	ft_foreach(int *tab, int length, void (*f)(int))
 {
-	int root;
+	int	i;
 
-	root = 0;
-	if (nb < 0)
-		return (0);
-	while (root * root < nb)
-		root++;
-	if (root * root == nb)
-		return (root);
-	return (0);
+	i = 0;
+	while (i < length)
+	{
+		f(tab[i]);
+		i++;
+	}
 }

@@ -1,25 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_sqrt.c                                          :+:      :+:    :+:   */
+/*   ft_is_negative.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: elchrist <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/11/20 16:40:12 by elchrist          #+#    #+#             */
-/*   Updated: 2018/11/20 16:47:26 by elchrist         ###   ########.fr       */
+/*   Created: 2018/11/19 19:23:22 by elchrist          #+#    #+#             */
+/*   Updated: 2018/11/19 19:25:01 by elchrist         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_sqrt(int nb)
-{
-	int root;
+#include <unistd.h>
 
-	root = 0;
-	if (nb < 0)
-		return (0);
-	while (root * root < nb)
-		root++;
-	if (root * root == nb)
-		return (root);
-	return (0);
+void	ft_putchar(char c);
+
+void	ft_is_negative(int n)
+{
+	if (n < 0)
+		ft_putchar('N');
+	else
+		ft_putchar('P');
 }
