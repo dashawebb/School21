@@ -1,29 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_tolower.c                                       :+:      :+:    :+:   */
+/*   ft_strncpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: elchrist <elchrist@student.42.fr>          +#+  +:+       +#+        */
+/*   By: elchrist <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/11/28 13:45:05 by elchrist          #+#    #+#             */
-/*   Updated: 2018/11/28 18:54:21 by elchrist         ###   ########.fr       */
+/*   Created: 2018/11/28 22:33:42 by elchrist          #+#    #+#             */
+/*   Updated: 2018/11/28 22:34:39 by elchrist         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-#include <ctype.h>
-
-int	ft_tolower(int c)
+char	*ft_strncpy(char *dst, const char *src, size_t len)
 {
-	if (c >= 65 && c <= 90)
-		c += 32;
-	return (c);
-}
+	int i;
 
-int main()
-{
-  int a = 'Q';
-  int b = tolower(a);
-  int c = ft_tolower(a);
-  printf("%d   %d\n", b, c);
+	i = 0;
+	while (src[i] && i < len)
+	{
+		dst[i] = src[i];
+		i++;
+	}
+	dst[i] = '\0';
+	return (dst);
 }

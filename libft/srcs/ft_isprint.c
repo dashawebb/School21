@@ -1,29 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_tolower.c                                       :+:      :+:    :+:   */
+/*   ft_isprint.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: elchrist <elchrist@student.42.fr>          +#+  +:+       +#+        */
+/*   By: elchrist <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/11/28 13:45:05 by elchrist          #+#    #+#             */
-/*   Updated: 2018/11/28 18:54:21 by elchrist         ###   ########.fr       */
+/*   Created: 2018/11/28 22:04:26 by elchrist          #+#    #+#             */
+/*   Updated: 2018/11/28 22:04:56 by elchrist         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-#include <ctype.h>
-
-int	ft_tolower(int c)
+int	ft_isprint(int c)
 {
-	if (c >= 65 && c <= 90)
-		c += 32;
-	return (c);
-}
-
-int main()
-{
-  int a = 'Q';
-  int b = tolower(a);
-  int c = ft_tolower(a);
-  printf("%d   %d\n", b, c);
+	if (c >= 32 && c <= 126)
+		return (1);
+	return (0);
 }

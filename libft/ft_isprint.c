@@ -1,29 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_tolower.c                                       :+:      :+:    :+:   */
+/*   ft_isprint.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: elchrist <elchrist@student.42.fr>          +#+  +:+       +#+        */
+/*   By: elchrist <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/11/28 13:45:05 by elchrist          #+#    #+#             */
-/*   Updated: 2018/11/28 18:54:21 by elchrist         ###   ########.fr       */
+/*   Created: 2018/11/28 21:57:57 by elchrist          #+#    #+#             */
+/*   Updated: 2018/11/28 22:05:05 by elchrist         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
 #include <ctype.h>
+#include <stdio.h>
 
-int	ft_tolower(int c)
+int ft_isprint(int c)
 {
-	if (c >= 65 && c <= 90)
-		c += 32;
-	return (c);
+	if (c >= 32 && c <= 126)
+		return (1);
+	return (0);
 }
 
-int main()
+int	main()
 {
-  int a = 'Q';
-  int b = tolower(a);
-  int c = ft_tolower(a);
-  printf("%d   %d\n", b, c);
+	int a = "us";
+	int stand = isprint(a);
+	int mine = ft_isprint(a);
+	printf("%d\n", stand);
+	printf("%d\n", mine);
 }

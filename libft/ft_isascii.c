@@ -1,29 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_tolower.c                                       :+:      :+:    :+:   */
+/*   ft_isascii.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: elchrist <elchrist@student.42.fr>          +#+  +:+       +#+        */
+/*   By: elchrist <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/11/28 13:45:05 by elchrist          #+#    #+#             */
-/*   Updated: 2018/11/28 18:54:21 by elchrist         ###   ########.fr       */
+/*   Created: 2018/11/27 19:12:03 by elchrist          #+#    #+#             */
+/*   Updated: 2018/11/27 19:16:14 by elchrist         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
 #include <ctype.h>
+#include <stdio.h>
 
-int	ft_tolower(int c)
+int	ft_isascii(int c)
 {
-	if (c >= 65 && c <= 90)
-		c += 32;
-	return (c);
+	if (c >= 0 && c <= 127)
+		return (1);
+	return (0);
 }
 
-int main()
+int	main()
 {
-  int a = 'Q';
-  int b = tolower(a);
-  int c = ft_tolower(a);
-  printf("%d   %d\n", b, c);
+	int a = 'f3';
+	printf("%d\n", ft_isascii(a));
+	printf("%d\n", isascii(a));
 }

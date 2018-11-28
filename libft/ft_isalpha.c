@@ -1,29 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_tolower.c                                       :+:      :+:    :+:   */
+/*   ft_isalpha.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: elchrist <elchrist@student.42.fr>          +#+  +:+       +#+        */
+/*   By: elchrist <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/11/28 13:45:05 by elchrist          #+#    #+#             */
-/*   Updated: 2018/11/28 18:54:21 by elchrist         ###   ########.fr       */
+/*   Created: 2018/11/27 17:09:37 by elchrist          #+#    #+#             */
+/*   Updated: 2018/11/27 18:51:40 by elchrist         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
 #include <ctype.h>
+#include <stdio.h>
 
-int	ft_tolower(int c)
+int	ft_isalpha(int c)
 {
-	if (c >= 65 && c <= 90)
-		c += 32;
-	return (c);
+	if ((c >= 65 && c<= 90) || (c >= 97 && c <= 122))
+		return (1);
+	return (0);
 }
 
-int main()
+int	main()
 {
-  int a = 'Q';
-  int b = tolower(a);
-  int c = ft_tolower(a);
-  printf("%d   %d\n", b, c);
+	int a = 12;
+	int c = isalpha(a);
+	int d = ft_isalpha(a);
+	printf("%d\n", c);
+	printf("%d\n", d);
 }
