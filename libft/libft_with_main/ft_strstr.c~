@@ -1,0 +1,77 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_strstr.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: elchrist <elchrist@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2018/11/28 22:51:15 by elchrist          #+#    #+#             */
+/*   Updated: 2018/11/30 22:24:31 by elchrist         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include <stdio.h>
+#include <string.h>
+#include <stdlib.h>
+
+// char	*ft_strstr(const char *haystack, const char *needle)
+// {
+// 	int		i;
+// 	int		j;
+//
+// 	j = 0;
+// 	i = 0;
+// 	if (needle[i] == '\0')
+// 		return ((char *)haystack);
+// 	while (*haystack)
+// 	{
+// 		while (haystack[i] == needle[j])
+// 		{
+// 			i++;
+// 			j++;
+// 		}
+// 		if (needle[j] == '\0')
+// 			return ((char *)(haystack));
+// 		j = 0;
+// 		i = 0;
+// 		haystack++;
+// 	}
+// 	return (NULL);
+// }
+char	*ft_strstr(const char *haystack, const char *needle)
+{
+	int i;
+	int j;
+
+	j = 0;
+	i = 0;
+	if (needle[i] == '\0')
+		return ((char *)haystack);
+	while (haystack[i])
+	{
+		j = 0;
+		while (haystack[i] == needle[j])
+		{
+			i++;
+			j++;
+		}
+		if (needle[j] == '\0' && j > 0)
+			return ((char *)(haystack + i));
+		i++;
+	}
+	return (NULL);
+}
+
+int main()
+{
+		 // char	*s1 = "MZIRIBMZIRIBMZP";
+		 // char	*s2 = "MZIRIBMZP";
+		// char	*s1 = "FF";
+		// char	*s2 = "see FFFF your F return F now FF";
+		char s1[10] = "123456789";
+		char s2[10] = "567";
+		char	*i1 = strstr(s1, s2);
+		char	*i2 = ft_strstr(s1, s2);
+		printf("%s\n", i1);
+		printf("%s\n", i2);
+}
