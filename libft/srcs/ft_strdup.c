@@ -3,16 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: elchrist <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: elchrist <elchrist@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/28 21:17:02 by elchrist          #+#    #+#             */
-/*   Updated: 2018/11/28 22:48:40 by elchrist         ###   ########.fr       */
+/*   Updated: 2018/11/30 21:27:04 by elchrist         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <stdlib.h>
 
-char		*ft_strdup(char *src)
+char		*ft_strdup(const char *src)
 {
 	char	*s;
 	int		len;

@@ -1,25 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcmp.c                                        :+:      :+:    :+:   */
+/*   ft_strsub.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: elchrist <elchrist@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/11/27 17:42:49 by elchrist          #+#    #+#             */
-/*   Updated: 2018/12/03 20:39:41 by elchrist         ###   ########.fr       */
+/*   Created: 2018/12/04 18:00:06 by elchrist          #+#    #+#             */
+/*   Updated: 2018/12/04 21:49:06 by elchrist         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_strcmp(const char *s1, const char *s2)
+#include "libft.h"
+#include <stdlib.h>
+
+char		*ft_strsub(char const *s, unsigned int start, size_t len)
 {
-	int i;
+	size_t	i;
+	char	*str;
 
 	i = 0;
-	while (s1[i] || s2[i])
+	if (s == NULL)
+		return (NULL);
+	str = ft_strnew(len);
+	if (str == NULL)
+		return (NULL);
+	if (start < len)
 	{
-		if (s1[i] != s2[i])
-			return ((unsigned char)s1[i] - (unsigned char)s2[i]);
-		i++;
+		while (i < len)
+		{
+			str[i] = s[start + i];
+			i++;
+		}
 	}
-	return (0);
+	return (str);
 }

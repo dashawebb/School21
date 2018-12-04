@@ -1,25 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcmp.c                                        :+:      :+:    :+:   */
+/*   ft_memccpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: elchrist <elchrist@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/11/27 17:42:49 by elchrist          #+#    #+#             */
-/*   Updated: 2018/12/03 20:39:41 by elchrist         ###   ########.fr       */
+/*   Created: 2018/12/03 17:02:32 by elchrist          #+#    #+#             */
+/*   Updated: 2018/12/03 20:41:08 by elchrist         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_strcmp(const char *s1, const char *s2)
+#include "libft.h"
+
+void	*ft_memccpy(void *dst, const void *src, int c, size_t n)
 {
-	int i;
+	unsigned char	*a;
+	unsigned char	*b;
+	int				i;
 
 	i = 0;
-	while (s1[i] || s2[i])
+	a = (unsigned char *)dst;
+	b = (unsigned char *)src;
+	while ((b[i] != (unsigned char)c) && n > 0)
 	{
-		if (s1[i] != s2[i])
-			return ((unsigned char)s1[i] - (unsigned char)s2[i]);
+		n--;
+		a[i] = b[i];
 		i++;
 	}
-	return (0);
+	if (n > 0)
+	{
+		a[i] = b[i];
+		i++;
+		return (a + i);
+	}
+	else
+		return (NULL);
 }

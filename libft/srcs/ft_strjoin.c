@@ -1,25 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcmp.c                                        :+:      :+:    :+:   */
+/*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: elchrist <elchrist@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/11/27 17:42:49 by elchrist          #+#    #+#             */
-/*   Updated: 2018/12/03 20:39:41 by elchrist         ###   ########.fr       */
+/*   Created: 2018/12/04 20:35:53 by elchrist          #+#    #+#             */
+/*   Updated: 2018/12/04 21:54:33 by elchrist         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_strcmp(const char *s1, const char *s2)
+#include "libft.h"
+
+char		*ft_strjoin(char const *s1, char const *s2)
 {
-	int i;
+	size_t	len1;
+	size_t	len2;
+	size_t	len;
+	char	*str;
+	int		i;
 
 	i = 0;
-	while (s1[i] || s2[i])
+	if (s1 == NULL || s2 == NULL)
+		return (NULL);
+	len1 = ft_strlen(s1);
+	len2 = ft_strlen(s2);
+	len = len1 + len2;
+	str = ft_strnew(len);
+	if (str == NULL)
+		return (NULL);
+	while (s1[i])
 	{
-		if (s1[i] != s2[i])
-			return ((unsigned char)s1[i] - (unsigned char)s2[i]);
+		str[i] = s1[i];
 		i++;
 	}
-	return (0);
+	ft_strcat(str, s2);
+	return (str);
 }
