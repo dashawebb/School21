@@ -3,14 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   ft_lstadd.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: elchrist <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: elchrist <elchrist@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/12/07 19:27:49 by elchrist          #+#    #+#             */
-/*   Updated: 2018/12/07 19:34:33 by elchrist         ###   ########.fr       */
+/*   Created: 2018/12/07 21:29:35 by elchrist          #+#    #+#             */
+/*   Updated: 2018/12/07 22:00:04 by elchrist         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-t_list	*ft_lstadd(void const *content, size_t content_size)
+#include "libft.h"
+
+void	ft_lstadd(t_list **alst, t_list *new)
 {
-	return (NULL);
+	new->next = *alst;
+	*alst = new;
 }
