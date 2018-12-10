@@ -3,15 +3,12 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: elchrist <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: elchrist <elchrist@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/11/27 17:35:08 by elchrist          #+#    #+#             */
-/*   Updated: 2018/11/27 17:42:28 by elchrist         ###   ########.fr       */
+/*   Created: 2018/11/27 17:42:49 by elchrist          #+#    #+#             */
+/*   Updated: 2018/12/03 20:39:41 by elchrist         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-#include <string.h>
-#include <stdio.h>
 
 int	ft_strcmp(const char *s1, const char *s2)
 {
@@ -21,18 +18,8 @@ int	ft_strcmp(const char *s1, const char *s2)
 	while (s1[i] || s2[i])
 	{
 		if (s1[i] != s2[i])
-			return (s1[i] - s2[i]);
+			return ((unsigned char)s1[i] - (unsigned char)s2[i]);
 		i++;
 	}
 	return (0);
-}
-
-int	main()
-{
-	char *st1 = "Privet";
-	char *st2 = "PrivEt";
-	int mine = ft_strcmp(st1, st2);
-	int stand = strcmp(st1, st2);
-	printf("%d\n", mine);
-	printf("%d\n", stand);
 }
