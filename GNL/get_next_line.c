@@ -6,68 +6,82 @@
 /*   By: elchrist <elchrist@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/13 17:14:02 by elchrist          #+#    #+#             */
-/*   Updated: 2018/12/15 19:04:01 by elchrist         ###   ########.fr       */
+/*   Updated: 2018/12/18 23:21:31 by elchrist         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "libft.h"
+// #include <stdio.h> // тут лежит EOF
 #include "get_next_line.h"
 
-// char *reading_line(char *s, int fd)
-// {
-//     int ret;
-//     char buf[BUFF_SIZE + 1];
-//
-//     // while (ret = read(fd, buf, BUFF_SIZE) > 0)
-//     // {
-//     //     buf[ret] = '\0';
-//     //     s = ft_strjoin(s, buf);
-//     // }
-//     // return (s);
-// }
-
-int is_error(int fd, char **line, char **str)
+int is_error(const int fd, char **line, char **str)
 {
+    char    buff[BUFF_SIZE + 1];
+    int     ret;
+
+    if (BUFF_SIZE <= 0)
+        return (1);
     if (fd < 0 || line == NULL)
         return (1);
     if (!*line)
         return (1);
-    str = (char **)malloc(sizeof(char*) * (BUFF_SIZE + 1));
+    str = (char*)malloc(sizeof(char) * (BUFF_SIZE + 1)); //или *str
     if (str == NULL)
+        return (1);
+    if (ret = read(fd, buff, 0) < 0)
         return (1);
     return (0);
 }
 
-int function_that_reads_line()
+char *ft_reading_line(char *s, int fd)
 {
+    char    buff[BUFF_SIZE + 1];
+    int     ret;
 
+    while (ret = read(fd, buff, BUFF_SIZE) > 0)
+    {
+        buff[ret] = '\0';
+        s = ft_strjoin(s, buff);
+    }
+    return (s);
 }
+
+// while (ret = read(fd, buff, BUFF_SIZE) > 0)
+// {
+//     buff[ret] = '\0';
+//     // if (s[fd] == NULL)
+//     //    s[fd] = ft_strnew(1);
+//     temp = ft_strjoin(s[fd], buff);
+//     free(s[fd]);
+//     s[fd] = temp;
+//     if (ft_strchr(buff, '\n'))
+//         break ;
+// }
 
 int get_next_line(const int fd, char **line)
 {
-    int i;
-    int ret;
-    char *temp;
-    char buf[BUFF_SIZE + 1];
-    static char *arr[1024];
+    static char *s[1024]; //или просто *s??
+	char buff[BUF_SIZE + 1]; //мб buff и ret можно закомментить, т.к. они описаны раньше
+	int count;
 
-    i = 0;
-    if (is_error(fd, line, &arr) == 1)
+    count = 0;
+    if (is_error(fd, line, s) == 1) // или &s?
         return (-1);
-    while (ret = read(fd, buf, BUFF_SIZE) > 0)
+    // if (*s)
+    s = ft_strcpy(*line, s); // надо ли?
+    s = ft_reading_line(s, fd); // в s кладётся то, что передал fd в буфер
+    if (s[count]) // HEZE VOOBSHE MOJET I NE TAK
     {
-        buf[ret] = '\0';
-        if (arr[fd] == NULL)
-			arr[fd] = ft_strnew(1); // или strnew(0) ?
-        temp = ft_strjoin(s[fd], buf);
-    	free(s[fd]);
-    	s[fd] = temp;
-        if (ft_strchr(buf, '\n')
-            break ;
+        while (s[count] && s[count] != '\n')
+            count++;
+        if (count == 0)
+            *line = ft_strdup("");
+        else
+            *line = ft_strsub(s, 0, count); //записываем в лайн всё с 0 до каунт
+        s = &s[count + 1]; //кидаем в s пойнтер на следующий символ
+        return (1);
     }
-    if (ret < 0)
-        return (-1);
-    else if ((arr[fd][0] == '\0') && ret == 0)
-    	return (0);
     else
-        return (function_that_reads_line)
+        *line = ft_strdup("");
+    return (0);
 }
