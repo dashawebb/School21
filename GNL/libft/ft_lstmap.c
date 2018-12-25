@@ -1,25 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.h                                    :+:      :+:    :+:   */
+/*   ft_lstmap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: elchrist <elchrist@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/12/13 17:17:31 by elchrist          #+#    #+#             */
-/*   Updated: 2018/12/21 21:48:03 by elchrist         ###   ########.fr       */
+/*   Created: 2018/12/07 21:53:09 by elchrist          #+#    #+#             */
+/*   Updated: 2018/12/08 15:24:54 by elchrist         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef GET_NEXT_LINE_H
-# define GET_NEXT_LINE_H
-# define BUFF_SIZE 1000
-# include "libft.h"
-# include <unistd.h>
-# include <fcntl.h>
-# include <stdlib.h>
+#include "libft.h"
+#include <stdlib.h>
 
-int			is_error(const int fd, char **line, char **str);
-char		*ft_reading_line(char *s, int fd);
-int			get_next_line(const int fd, char **line);
+t_list		*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem))
+{
+	t_list	*new;
+	t_list	*applied;
 
-#endif
+	if (lst == NULL)
+		return (NULL);
+	applied = f(lst);
+	new = applied;
+	while (lst->next)
+	{
+		lst = lst->next;
+		if ((applied->next = f(lst)) == NULL)
+		{
+			free(applied->next);
+			return (NULL);
+		}
+		applied = applied->next;
+	}
+	return (new);
+}

@@ -1,25 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.h                                    :+:      :+:    :+:   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: elchrist <elchrist@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/12/13 17:17:31 by elchrist          #+#    #+#             */
-/*   Updated: 2018/12/21 21:48:03 by elchrist         ###   ########.fr       */
+/*   Created: 2018/11/28 21:17:02 by elchrist          #+#    #+#             */
+/*   Updated: 2018/12/07 19:57:55 by elchrist         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef GET_NEXT_LINE_H
-# define GET_NEXT_LINE_H
-# define BUFF_SIZE 1000
-# include "libft.h"
-# include <unistd.h>
-# include <fcntl.h>
-# include <stdlib.h>
+#include "libft.h"
+#include <stdlib.h>
 
-int			is_error(const int fd, char **line, char **str);
-char		*ft_reading_line(char *s, int fd);
-int			get_next_line(const int fd, char **line);
+char		*ft_strdup(const char *src)
+{
+	char		*s;
+	size_t		len;
+	size_t		i;
 
-#endif
+	i = 0;
+	len = ft_strlen(src);
+	s = (char*)malloc(sizeof(*s) * (len + 1));
+	if (!s)
+		return (NULL);
+	while (src[i])
+	{
+		s[i] = src[i];
+		i++;
+	}
+	s[i] = '\0';
+	return (s);
+}

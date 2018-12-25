@@ -1,25 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.h                                    :+:      :+:    :+:   */
+/*   ft_memmove.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: elchrist <elchrist@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/12/13 17:17:31 by elchrist          #+#    #+#             */
-/*   Updated: 2018/12/21 21:48:03 by elchrist         ###   ########.fr       */
+/*   Created: 2018/11/29 22:54:52 by elchrist          #+#    #+#             */
+/*   Updated: 2018/11/30 00:01:09 by elchrist         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef GET_NEXT_LINE_H
-# define GET_NEXT_LINE_H
-# define BUFF_SIZE 1000
-# include "libft.h"
-# include <unistd.h>
-# include <fcntl.h>
-# include <stdlib.h>
+#include "libft.h"
 
-int			is_error(const int fd, char **line, char **str);
-char		*ft_reading_line(char *s, int fd);
-int			get_next_line(const int fd, char **line);
+void	*ft_memmove(void *dst, const void *src, size_t len)
+{
+	size_t	i;
 
-#endif
+	if (len == 0)
+		return (dst);
+	if (src < dst)
+	{
+		i = len;
+		while (i > 0)
+		{
+			i--;
+			((char *)dst)[i] = ((const char *)src)[i];
+		}
+	}
+	else
+	{
+		i = 0;
+		while (i < len)
+		{
+			((char *)dst)[i] = ((const char *)src)[i];
+			i++;
+		}
+	}
+	return (dst);
+}
