@@ -24,9 +24,6 @@ static int		word_len(char const *s, char c)
 
 static char		*next_word(char const *s, char c)
 {
-	int		i;
-
-	i = 0;
 	while (*s && *s == c)
 		s++;
 	return ((char *)s);

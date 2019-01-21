@@ -1,20 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_swap.c                                          :+:      :+:    :+:   */
+/*   get_next_line.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: elchrist <elchrist@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/12/08 18:47:44 by elchrist          #+#    #+#             */
-/*   Updated: 2018/12/08 18:50:12 by elchrist         ###   ########.fr       */
+/*   Created: 2018/12/13 17:17:31 by elchrist          #+#    #+#             */
+/*   Updated: 2019/01/20 19:47:52 by elchrist         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-void	ft_swap(int *a, int *b)
-{
-	int	temp;
+#ifndef GET_NEXT_LINE_H
+# define GET_NEXT_LINE_H
+# define BUFF_SIZE 1000
+# include "libft.h"
+# include <unistd.h>
+# include <fcntl.h>
+# include <stdlib.h>
 
-	temp = *a;
-	*a = *b;
-	*b = *a;
-}
+int			is_error(const int fd, char **line, char **str);
+char		*ft_reading_line(char **s, int fd);
+int			get_next_line(const int fd, char **line);
+
+#endif
